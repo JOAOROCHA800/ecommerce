@@ -25,7 +25,7 @@ class Mailer {
 		Tpl::configure( $config );
 
 		$tpl = new Tpl; 
-
+ 
 		foreach ($data as $key => $value) {
 			$tpl->assign($key, $value);
 		}
