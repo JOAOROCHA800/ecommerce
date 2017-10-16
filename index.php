@@ -291,7 +291,7 @@ $app->get('/admin/categories/:idrecovery', function($idcategory)
 $app->post('/admin/categories/:idrecovery', function($idcategory) 
 {
  	User::verifyLogin();
- 	
+
  	$category = new Category();
 
  	$category->get((int)$idcategory);
@@ -302,6 +302,21 @@ $app->post('/admin/categories/:idrecovery', function($idcategory)
      
     header("Location: /admin/categories");
 	exit;
+});
+
+$app->get('/categories/:idrecovery', function($idcategory) 
+{
+
+	$category = new Category();
+
+	$category->get((int)$idcategory);
+
+	$page = new Page();
+
+    $page -> setTpl("category", [
+    	'category'=>$category->getValues(),
+    	'products'=>[]
+	]);
 });
 
 $app->run();
