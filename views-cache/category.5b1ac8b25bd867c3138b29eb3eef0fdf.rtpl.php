@@ -14,7 +14,7 @@
     <div class="zigzag-bottom"></div>
     <div class="container">
         <div class="row">
-            <?php $counter1=-1;  if( isset($produts) && ( is_array($produts) || $produts instanceof Traversable ) && sizeof($produts) ) foreach( $produts as $key1 => $value1 ){ $counter1++; ?>
+            <?php $counter1=-1;  if( isset($products) && ( is_array($products) || $products instanceof Traversable ) && sizeof($products) ) foreach( $products as $key1 => $value1 ){ $counter1++; ?>
 
             <div class="col-md-3 col-sm-6">
                 <div class="single-shop-product">
