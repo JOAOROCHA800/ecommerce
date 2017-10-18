@@ -33,7 +33,7 @@ class Category extends Model
 	}
 	public function get($idcategory) 
 	{
-		$sql = new Sql ;
+		$sql= new Sql();
 
 		$results = $sql->select("SELECT * FROM tb_categories WHERE idcategory = :idcategory", [':idcategory'=>$idcategory]);
 
@@ -50,7 +50,7 @@ class Category extends Model
 	}
 	public static function updateFile()
 	{
-		$categories = categorY::listall();
+		$categories = category::listall();
 		$html = [];
 		foreach ($categories as $row) {
 		array_push($html,'<li><a href="/categories/'.$row['idcategory'].'">'.$row['descategory'].'</a></li>');
