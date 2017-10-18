@@ -5,6 +5,7 @@ use \Hcode\PageAdmin;
 use \Hcode\Model\Product;
 use \Hcode\Model\User;
 use \Hcode\Model\Category;
+use \Hcode\Model\Cart;
 
 
 	$app->get('/', function() 	
@@ -58,5 +59,13 @@ use \Hcode\Model\Category;
 			'categories'=>$product->getCategories()
 		]);
  	});
-	
+
+	$app->get("/cart", function()
+	{
+		$cart = Cart::getFromSession();
+		
+		$page = new Page();
+
+		$page->setTpl("cart");
+	}); 
 ?>
