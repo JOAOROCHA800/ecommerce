@@ -2,7 +2,7 @@
 
 namespace Hcode;
 
-use Rain\Tpl;
+use Rain\Tpl;	
 
 class Mailer {
 
@@ -83,9 +83,20 @@ class Mailer {
 
 		//Replace the plain text body with one created manually
 		$this->mail->AltBody = 'Html não funcionou!!!';
+	
+		$this->mail->isSMTP();
+	
+		$this->mail->SMTPOptions = array(
+	    'ssl' => array(
+	        'verify_peer' => false,
+	        'verify_peer_name' => false,
+	        'allow_self_signed' => true
+	    )
+	);
 
 	}
 
+	
 	public function send() 
 	{
 		return $this->mail->send();
