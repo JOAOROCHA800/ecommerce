@@ -239,7 +239,7 @@ use \Hcode\Model\OrderStatus;
 
 		$cart = Cart::getFromSession();
 		
-		$totals = $cart->getCalculateTotal();
+		$cart->getCalculateTotal();
 		
 		$order = new Order();
 
@@ -586,7 +586,7 @@ $app->get("/profile/orders/:idorder", function($idorder){
 	$order->get((int)$idorder);
 
 	$cart = new Cart();
-
+	
 	$cart->get((int)$order->getidcart());
 
 	$cart->getCalculateTotal();
